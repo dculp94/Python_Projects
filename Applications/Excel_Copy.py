@@ -5,10 +5,7 @@ import datetime
 # Define the directory where the Excel files are located
 dir_path = "D:\Python_Coding_Class\Python_50Days\Testdir"
 
-# Get a list of all the Excel files in the directory
 files = os.listdir(dir_path)
-
-# Filter out any non-Excel files
 files = [f for f in files if f.endswith(".xlsx")]
 
 # Sort the list of files by modification time (newest first)
@@ -31,5 +28,4 @@ week_range = start_of_week.strftime("%Y-%m-%d") + " -> " + end_of_week.strftime(
 # Create the new filename by replacing the file extension with the week range
 new_filename = os.path.splitext(latest_file)[0] + " " + week_range + os.path.splitext(latest_file)[1]
 
-# Copy the file to the new filename
 shutil.copyfile(latest_file, os.path.join(dir_path, new_filename))
